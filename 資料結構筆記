@@ -4,7 +4,7 @@
 用書:Fundamentals of Data Structures in C++, E. Horowitz, S. Sahni and D. Mehta, Computer Science Press.
 
 **比大小**
-    Selection sort-先選最小的放第一個位置
+Selection sort-先選最小的放第一個位置
 ```C
 void sort(int list[],int n)
 {
