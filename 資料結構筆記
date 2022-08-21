@@ -56,5 +56,16 @@ int binsearch(int list[], int searchno, int left, int right)
  當n>>>>k，解法2較好用
 
 **Recursive演算法**
+1.直接:function呼叫自己，需避免停不下來，寫之前記得想什麼時候要停下來
+int fact(int n)
+{
+ if(n==0)    /*boundary condition*/
+   return(1); 
+ else
+   return(n*fact(n-1));
+}
+2.間接:function1呼叫function2，function2會呼叫自己
 C(n,m) = n!/[m!(n-m)!]
 => C(n,m) = C(n-1,m)+C(n-1,m-1)
+
+    
