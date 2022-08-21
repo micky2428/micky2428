@@ -48,3 +48,9 @@ int binsearch(int list[], int searchno, int left, int right)
     case 1 :right = middle -1;
   }
  }
+ 
+ **為什麼要有不同演算法**
+ 問題: 找第kth大的數字
+ 解法1:排序後印出第k位
+ 解法2:取k個數字，並做排序，再把剩下的數字和k裡的做比較，比k小不理他，比k大把他抓進array排序 (用sorting方法解)
+ 當n>>>>k，解法2較好用
