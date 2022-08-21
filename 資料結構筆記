@@ -5,7 +5,7 @@
 
 **比大小**
 Selection sort-先選最小的放第一個位置
-//
+```C
 void sort(int list[],int n)
 {
 	for(i=0;i<n-1;i++){
@@ -16,7 +16,7 @@ void sort(int list[],int n)
 			SWAP(list[i],list[min],temp);
 	}
 }
-//
+```
 Comparison-based sort最快的演算法: 快速排序法 (Quick Sort)
 還有更快的但非Comparison-based-用Bucket方式做Sort/ hash fuction無法做比較 /基數排序Radix sort
 
