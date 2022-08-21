@@ -1,0 +1,37 @@
+課程名稱:演算法設計與分析
+來源:Youtube
+
+
+# 概論
+>演算法設計與分析流程
+1.建構問題
+'''
+遵循comparison-based rule
+'''
+2.發展演算法
+'''
+int i, j;
+j=1;
+for(i=2;i<=n;i++)
+ if(A[i]>A[j])
+  j=i;
+return j;
+'''
+-----------以上屬於設計---------
+3.證明正確性
+使用反證法
+4.分析此演算法運算時間和空間(有效率)-確認問題難度，當upper bound= lower bound
+以本題為例，進行幾次比較才能完成? 本題的難度在n-1(upper bound)比較，因為無任何演算法只需跑n-2次就能完成
+'''
+int i, j;
+j=1;
+for(i=2;i<=n;i++)
+ if(A[i]>A[j]) && (A[j]<A[i]) /*多做一次(2n-2次)比較，沒有上面得來的好*/
+  j=i;
+return j;
+'''
+
+至少要幾次 n/2 (the hightest lower bound)
+
+
+
