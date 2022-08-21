@@ -1,0 +1,50 @@
+
+課程名稱:資料結構
+來源:交通大學資訊工程學系開放課程
+用書:Fundamentals of Data Structures in C++, E. Horowitz, S. Sahni and D. Mehta, Computer Science Press.
+
+**比大小**
+Selection sort-先選最小的放第一個位置
+//
+void sort(int list[],int n)
+{
+	for(i=0;i<n-1;i++){
+		min=i;
+		for(j=i+1;j<n;j++){
+			if(list[j]<list[min])
+				min=j; }
+			SWAP(list[i],list[min],temp);
+	}
+}
+//
+Comparison-based sort最快的演算法: 快速排序法 (Quick Sort)
+還有更快的但非Comparison-based-用Bucket方式做Sort/ hash fuction無法做比較 /基數排序Radix sort
+
+**搜索**
+Binary Search 
+前提:數字必須是排好順序的
+做法:切半，接著比較切半後的數字和搜索對象誰比較大(分辨他在右還是左邊)
+思考:
+While(有很多整數要確認){
+ middle = (left+right)/2;
+ if (搜索對象<list[middle])
+  right = middle -1;
+ else if(搜索對象==list[middle])
+  return middle;
+ else left = middle+1;
+}
+
+語法:
+int compare(int x, int y)
+/*return-1 for less than, 0 for equal*/
+int binsearch(int list[], int searchno, int left, int right)
+{
+  while(left<=right){
+  middle = (left+right)/2;
+  switch(COMPARE(list[middle],searchno)){
+    case-1:left = middle + 1;
+        break;
+    case 0:return middle;
+    case 1 :right = middle -1;
+  }
+ }
