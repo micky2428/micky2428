@@ -22,4 +22,132 @@ int main() {
   return 0;
 }
 
-二、
+二、寫一個程式計算給定日期為星期幾。輸入會先告訴程式某年的 1 月 1 號為星期幾，例如範例中 2012 年的 1 月 1 號為星期日。接著程式會收到一些日期，並要計算出給定日期為星期幾，例如範例中程式將會收到 11 月 13 號，並計算出該日期為星期二。
+輸入格式
+第一行包含一個西元年以及該年的一月一日為星期幾，如範例中 2012 0。注意，0 代表星期日，1 代表星期一，以此類推。第二行會告訴程式接下來將有 n 組日期需要計算。n 的範圍為 1 至 10。接下來的 n 行，每一行將會有一組需要計算的日期(月、日)，如範例中的 11 月 13 號。若輸入的「月」有誤請輸出 -1；若輸入的「日」有誤請輸出 -2。
+輸出格式
+共會輸出 n 個數字。我們用 0 代表星期日，1 代表星期一，以此類推。若輸入的「月」有誤請輸出 -1；若輸入的 「月」無誤但「日」有誤請輸出 -2。(數字間留一個空白)
+
+以下5題錯4題
+#include <stdio.h>
+
+int main() 
+{
+  int year, week;
+  int n;
+  scanf("%d %d", &year, &week);
+  scanf("%d", &n);
+  int i = 0;
+  for (i; i < n; i++){
+   int output = 0;
+   int month , date ;
+   scanf("%d %d", &month, &date );
+   switch ( month ) {
+   case 1: case 3: case 5: case 7: case 8:
+   case 10: case 12:    
+    if ((date > 31) || (date <= 0))
+     output = -2;
+    else
+     output = ((date+2*month+3*(month+1)/5+year+year/4-year/100+year/400)%7)+1;
+    break;
+   case 4: case 6: case 9: case 11:
+     if ((date > 30) || (date <= 0))
+      output = -2;
+     else
+      output = ((date+2*month+3*(month+1)/5+year+year/4-year/100+year/400)%7)+1;
+     break;
+
+   case 2:
+     if ((( year % 400 == 0) ||
+       (year % 4 == 0 && ( year % 100 != 0))) && (date <= 29) && (date > 0) )
+       output = ((date+2*month+3*(month+1)/5+year+year/4-year/100+year/400)%7)+1;
+     else if ((( year % 400 != 0) ||
+       (year % 4 != 0 && ( year % 100 == 0))) && (date <= 28) && (date > 0) )
+       output = ((date+2*month+3*(month+1)/5+year+year/4-year/100+year/400)%7)+1;
+     else
+       output = -2;
+      break ;
+   default :
+     output = -1;
+     break;
+  
+   }
+ printf ("%d ", output);
+ }
+} 
+
+正解
+#include <stdio.h>
+
+int main ()
+{
+   int y, d;
+   int n;
+   int month, day;
+   int leap_year;
+   int days;
+
+   scanf ( "%d%d", &y, &d );
+   scanf ( "%d", &n );
+
+   // leap year or not
+   leap_year = y % 400 == 0 || ( y % 100 && y % 4 == 0 );
+
+   // calculate each input line
+   for ( int i = 0; i < n; i++ ) {
+      if ( i ) printf ( " " );
+
+      days = d;
+      scanf ( "%d%d", &month, &day );
+
+      if ( month < 1 || month > 12 ) {
+         printf ( "-1" );
+         continue;
+      }
+      if ( day < 1 ) {
+         printf ( "-2" );
+         continue;
+      }
+      else {
+         switch ( month ) {
+            case 2:
+               if ( ( leap_year && day > 29 ) ||
+                    ( !leap_year && day > 28 ) ) {
+                  printf ( "-2" );
+                  continue;
+               }
+               break;
+            case 4: case 6: case 9: case 11:
+               if ( day > 30 ) {
+                  printf ( "-2" );
+                  continue;
+               }
+               break;
+            default:
+               if ( day > 31 ) {
+                  printf ( "-2" );
+                  continue;
+               }
+         }
+      }
+
+      for ( int m = 1; m < month; m++ ) {
+         switch ( m ) {
+            case 2:
+               if ( leap_year ) days += 29;
+               else days += 28;
+               break;
+            case 4: case 6: case 9: case 11:
+               days += 30;
+               break;
+            default:
+               days += 31;
+         }
+      }
+
+      days += ( day - 1 );
+      printf ( "%d", days % 7 );
+   }
+
+   return 0;
+}
