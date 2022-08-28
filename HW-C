@@ -185,3 +185,89 @@ int main ()
   printf ("\n");
  }
 }
+
+
+-----------
+Steps:
+1.每個人的數字盤
+#include <stdio.h>
+ 
+int main(void) 
+{
+ int n, m;
+ scanf ("%d %d", &n, &m);
+ int a[n][m][m];
+ int num, i, j;
+ for (num = 0; num < n; num++){
+  for (i = 0; i < m; i++){
+   for (j = 0; j < m; j++)
+    scanf ("%d", &(a[num][i][j]));
+  }
+ }
+ for (num = 0; num < n; num++){
+  for (i = 0; i < m; i++){
+   for (j = 0; j < m; j++)
+    printf ("%4d ", (a[num][i][j]));
+   printf ("\n");
+  }
+ }
+}
+
+---
+2.輸入點到的數字
+int main ()
+{
+ int max= m*m;
+ int i, k[max];
+ for ( i = 0 ; i < max ; i ++ )
+   scanf ("%d", &k[i]);
+ for (i = 0 ; i < max ; i ++){
+   printf ("%d ", k[i]);
+ }
+}
+------
+3.把被點到的數字變成0 [以下是算連成幾條線]
+
+ for ( int i = 0 ; i < max ; i ++ ){
+    for ( int j = 0 ; j < max ; j ++ ) {
+       if (k[i] == a[num][i][j]) 
+           a[num][i][j] = 0 ;
+    }
+ }
+ 
+     
+-------
+match
+橫
+   int s = 0 , line = 0;
+   for ( num = 0; num < max; num++ ){
+    for ( i = 0 ; i < max ; i ++ ){
+      for ( j = 0 ; j < max ; j ++ ){
+         s += a[num][i][j] ;
+      }
+      if ( s == 0 )
+         line += 1 ;
+      s = 0 ;
+    }
+   }
+-----
+綜合
+   for ( num = 0; num < max; num++ ){
+     for ( j = 0 ; j < max ; j ++ ){
+      for ( i = 0 ; i < max ; i ++ ){
+         s += a[num][i][j] ;
+      }
+      if ( s == 0 )
+         line += 1 ;
+      s = 0 ;
+    }
+   }
+----
+斜
+
+------
+獲勝者
+---------
+
+  
+
