@@ -13,7 +13,7 @@ if len(word) == lens:
 else:
 	print("False")
  
- 三、自己回文
+三、自己回文(HelloolleH)
  a = input()
 txt = a[::-1]
 print(a + txt)
@@ -30,7 +30,7 @@ if list[0]**2 + list[1]**2 == list[2]**2 and list[0] != list[1]:
 else:
  print("False")
  
- 五、完全平方數
+ 五、完全平方數(某數字以下的完全平方數)
  a = int(input())
 lis = []
 
