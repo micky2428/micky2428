@@ -1,0 +1,117 @@
+一、
+a = int(input())
+if (a % 2) == 0:
+  print("True")
+else:
+  print("False")
+  
+二、
+word = input()
+lens = int(input())
+if len(word) == lens:
+	print("True")
+else:
+	print("False")
+ 
+ 三、
+ a = input()
+txt = a[::-1]
+print(a + txt)
+
+四、
+a = int(input())
+b = int(input())
+c = int(input())
+list = [a,b,c]
+list.sort()
+
+if list[0]**2 + list[1]**2 == list[2]**2 and list[0] != list[1]:
+ print("True")
+else:
+ print("False")
+ 
+ 五、
+ a = int(input())
+lis = []
+
+for i in range(1,a):
+ if i**2 < a:
+  c = i**2
+  lis.append(c)
+for j in range(len(lis)):
+  print(lis[j])
+
+六、計算母音種類
+1.大小寫同一種
+a = input()
+a = a.lower() #== a = input().lower()
+vowel = "aeiou"
+num = 0
+for c in vowel :
+    if c in  a :
+        num += 1
+print(num)
+
+2.只算個數，不分種類
+my_str = input()
+my_list = []
+lis = ["a","e","i","o","u","A","E","I","O","U"]
+count = 0
+  
+for letter in my_str:
+    my_list.append(letter)
+
+for i in range(len(my_list)):
+ if my_list[i] in lis:
+  count += 1
+print(count)
+
+3.大小寫不同種
+a = input()
+vowel = "aeiouAEIOU"
+num = 0
+for c in vowel :
+    if c in  a :
+        num += 1
+print(num)
+
+七、
+x = input()
+x= x.split(" ")
+multi = 0
+listmulti = []
+  
+for i in range(len(x)):
+ if i < len(x)-1:
+  multi = int(x[i])*int(x[i+1])
+ listmulti.append(multi)
+ i+=1
+ listmulti.sort(reverse=True)
+   
+#for j in range(len(listmulti)):
+print(listmulti[0])
+
+**Note**:.sort(reverse=True)->反過來排序  vs. .reverse->把原本的順序反過來
+
+八、
+row = int(input())
+str = int(input())
+
+if row % 2 != 0:
+    for i in range(str):
+        for j in range(row):
+          if i % 2 == 0 and j % 2 == 0:
+            print("+", end ="")
+          elif i % 2 != 0 and j % 2 != 0:
+            print("+", end ="")
+          else:
+            print("-", end ="")
+        print(end="\n")
+if row % 2 == 0:    
+    for i in range(str):
+        for j in range(row):
+          if j % 2 == 0 :
+            print("+", end ="")
+          else:
+            print("-", end ="")
+        print(end="\n")
