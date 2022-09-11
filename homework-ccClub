@@ -1,11 +1,11 @@
-一、
+一、偶數
 a = int(input())
 if (a % 2) == 0:
   print("True")
 else:
   print("False")
   
-二、
+二、字串長度
 word = input()
 lens = int(input())
 if len(word) == lens:
@@ -13,12 +13,12 @@ if len(word) == lens:
 else:
 	print("False")
  
- 三、
+ 三、自己回文
  a = input()
 txt = a[::-1]
 print(a + txt)
 
-四、
+四、直角三角形
 a = int(input())
 b = int(input())
 c = int(input())
@@ -30,7 +30,7 @@ if list[0]**2 + list[1]**2 == list[2]**2 and list[0] != list[1]:
 else:
  print("False")
  
- 五、
+ 五、完全平方數
  a = int(input())
 lis = []
 
@@ -75,7 +75,7 @@ for c in vowel :
         num += 1
 print(num)
 
-七、
+七、乘積最大值
 x = input()
 x= x.split(" ")
 multi = 0
@@ -93,7 +93,7 @@ print(listmulti[0])
 
 **Note**:.sort(reverse=True)->反過來排序  vs. .reverse->把原本的順序反過來
 
-八、
+八、加減長方形
 row = int(input())
 str = int(input())
 
