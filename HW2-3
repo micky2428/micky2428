@@ -1,0 +1,51 @@
+//輸入
+n = int(input())/100
+ls = []
+dic = {}
+namels = []
+setco = set()
+while True:
+	name = input()
+	if name == "end":
+		break
+	else:
+		ls.append(name.split())
+
+//創造一個包含name和物品的dict
+for x in range(len(ls)):
+	ls1 = ls[x][1:]
+	namels.append(ls[x][0])
+	dic.update({ls[x][0]:ls1})
+
+//算出彼此之間的相似度
+siml = []
+for i in range(len(dic)):
+	for j in range(len(dic)):
+		setco = set(dic[namels[i]]) & set(dic[namels[j]])
+		num = (len(setco)/len(set(dic[namels[i]])))
+		if num >= n and num != 1:
+			idi = [namels[i],namels[j],num]
+			siml.append(idi)
+      
+//創造一個新的dict，把name設成key，value先設成空list，下一階段再加入值
+dicd ={}
+for y in range(len(ls)):
+	dicd.update({ls[y][0]:[]})
+
+print(siml)
+print(dic)
+
+//先把原本dict的value(即物品)轉成set，再以聯集扣掉被推薦人的物品
+for x in range(len(siml)):
+	r = set(dic[siml[x][0]]) | set(dic[siml[x][1]])
+	g = r - set(dic[siml[x][0]])
+  
+//因為set沒辦法排序，所以重掃一次推薦人的物品再把要推薦的東西依序加入新的dict裡的list，但如果重複就不加入
+	for k in dic[siml[x][1]]:
+		name = siml[x][0]
+		if k in g and k not in dicd[name]:
+			dicd[name].append(k)
+      
+//輸出
+for key, value in dicd.items() :
+    print (key, *value)
