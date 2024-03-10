@@ -1,5 +1,6 @@
-- 👋 Hi, I’m Demi-Hermosa (@micky2428).
-- 🌱 I’m currently learning C, python and R. These are my notes.
+- 👋 Hi, I’m Yuan-Ting Liang.
+- 👩‍💻 I am a civil servant who enjoys using programming to improve workflow.
+- 🌱 The main language I use is Python, and I have also studied C and R. I am willing to learn new languages such as Kotlin as needed for development.
 
 <!---
 micky2428/micky2428 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
